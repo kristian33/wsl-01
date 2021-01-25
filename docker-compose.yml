@@ -1,0 +1,17 @@
+version: '3'
+
+services: 
+    php:
+        image: php:7.4-apache
+        ports:
+           - 8080:80
+        volumes:
+            - ./apache2:/var/www/html
+            - ./.docker/apache2/custom.d:/etc/apache2/custom.d
+            - ./.docker/apache2/apache2.conf:/etc/apache2/apache2.conf
+            - ./.docker/apache2/vhosts/kristianklimek.dev:/var/www/kristianklimek.dev
+            - ./.docker/apache2/vhosts/klimek.dev:/var/www/klimek.dev
+            - ./.docker/apache2/vhosts/klimo.dev:/var/www/klimo.dev
+            - ./.docker/apache2/vhosts/kristos.dev:/var/www/kristos.dev
+# docker-compose up -d
+# docker-compose down
